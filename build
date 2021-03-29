@@ -2,3 +2,6 @@
 
 mdbook build 
 cp book ~/MKProjects/MKProj/Phaktionz/ -r
+git add * 
+git commit -m "update"
+git push -u origin 
