@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mdbook build 
+cp book ~/MKProjects/MKProj/Phaktionz/ -r
