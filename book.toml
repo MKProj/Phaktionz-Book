@@ -3,17 +3,15 @@ title="Phaktionz TCG"
 author="Mustafif Khan"
 
 [output.html]
-git-repository-icon = "fa-github"
-git-repository-url="https://github.com/MKProj/Phaktionz-Book.git"
+git-repository-url = "https://github.com/rust-lang/cargo/tree/master/src/doc/src"
 
 [output.html.search]
-enable = true
-limit-results = 30
+limit-results = 20
 teaser-word-count = 30
 use-boolean-and = true
 boost-title = 2
-boost-hierarchy = 1
+boost-hierarchy = 2
 boost-paragraph = 1
 expand = true
-heading-split-level = 3
+heading-split-level = 2
 copy-js = true

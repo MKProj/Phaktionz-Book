@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Phaktionz TCG</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./ch1-phaktionz.html"><strong>1.</strong> Phaktionz</a></li><li><ul class="section"><li><a href="./ch1-01-factions.html"><strong>1.1.</strong> Factions</a></li></ul></li><li><a href="./ch2-rules.html"><strong>2.</strong> Rules</a></li><li><ul class="section"><li><a href="./ch2-01-formats.html"><strong>2.1.</strong> Formats</a></li><li><a href="./ch2-02-card.html"><strong>2.2.</strong> Card-Types</a></li><li><a href="./ch02-03-terms.html"><strong>2.3.</strong> Terms</a></li><li><a href="./ch2-04-mechanics.html"><strong>2.4.</strong> Game-Mechanics</a></li><li><a href="./ch2-05-cp.html"><strong>2.5.</strong> Creation-Pile</a></li><li><a href="./ch2-06-promote.html"><strong>2.6.</strong> Promote</a></li></ul></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                    </div>
+
+                    <h1 class="menu-title">Phaktionz TCG</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="print.html#phaktionz" id="phaktionz"><h1>Phaktionz???</h1></a>
+<p>Phaktionz is a trading card game (TCG) being made and developed by Casual Card Cafe,
+and it's content being driven focussed as a community involved card game. The whole
+objective of the game is to make your opponent deck out or in other words have no cards
+left in their deck, and this can be done in various ways.</p>
+<a class="header" href="print.html#phaktionz-cli" id="phaktionz-cli"><h2>Phaktionz-CLI</h2></a>
+<p>Before continuing onto the various aspects of Phaktionz, if you would like to learn Phaktionz
+from directly on a Command Line, (currently only for Debian Linux Systems), then you may install doing the
+following commands:</p>
+<pre><code class="language-bash">#First add the repository 
+$ echo &quot;deb [trusted=yes] https://mkproj.github.io/Packages/ ./&quot; | sudo tee -a /etc/apt/sources.list &gt; /dev/null
+# Next update your packages 
+$ sudo apt update
+#Now you can install Phaktionz-CLI
+$ sudo apt install phaktionz
+</code></pre>
+<a class="header" href="print.html#factions" id="factions"><h1>Factions</h1></a>
+<p>In Phaktionz, your deck is built upon a specific faction that consists on it's own
+unique Summons, and with it, it's own story. The factions that live within the Phaktionz
+realm is categorized by their historic timeline, and goes as the following:</p>
+<ol>
+<li><a href="./ch1-01-factions.html#origins">Origins</a></li>
+<li><a href="./ch1-01-factions.html#delphic">Delphics</a></li>
+<li><a href="ch1-01-factions.html#modernas">Modernas</a></li>
+</ol>
+<div name="origins"><a class="header" href="print.html#origins" id="origins"><h2>Origins</h2></a></div>
+Origins are the factions that were first made by the founding fathers of the Phaktionz Realm, this being Prestige and his Sorcerers;
+Helios and his Mythicals; King and her animal kingdom. These Origin factions still exist in the Phaktionz present day, but not as glorious as 
+it once was.
+<p>Origin Factions:</p>
+<ul>
+<li>Sorcerers</li>
+<li>Mythicals</li>
+<li>Kingdoms</li>
+</ul>
+<div name="delphic"><a class="header" href="print.html#delphic" id="delphic"><h2>Delphic</h2></a></div>
+In the Mythical History, there was a unique Summon named Lyzor, he had been an experiment between the three Origins, and being a failed product, 
+was casted off his mortal self to be a lesser entity, a shadow. He had hatred towards the Origins, and use his lesser self to possess and corrupt 
+Factions, and made the Forbidden Plague pandemic, and due to it, the Factions had eventually erased themselves from history, and became the Delphic factions. 
+<p>Delphic Factions:</p>
+<ul>
+<li>Frosters</li>
+<li>Cryptics</li>
+<li>Cyborgs</li>
+<li>Probers</li>
+<li>The Unknowns</li>
+</ul>
+<div name="modernas"><a class="header" href="print.html#modernas" id="modernas"><h2>Modernas</h2></a></div>
+Modernas are what you guess they are, these factions are the ones who exist in the present day. These factions are what you can consider the evolved 
+Origin factions, and has the most amount of factions. As well as unlike Origin factions who believe in the Delphics as myth, the Modernas have no 
+knowledge of their existence whatsoever. 
+<p>Modernas Factions:</p>
+<ul>
+<li>Oceanics</li>
+<li>Alchemists</li>
+<li>Descendants</li>
+<li>Warriors</li>
+<li>Dragons</li>
+<li>Phasmas</li>
+<li>Titans</li>
+</ul>
+<a class="header" href="print.html#rules" id="rules"><h1>Rules</h1></a>
+<p>Current Rules Version: V1.2
+If you would like a pdf version of the Rules, click <a href="https://mkproj.com/Phaktionz/Rules/RulesV1.2.1.pdf">here!</a></p>
+<a class="header" href="print.html#table-of-contents" id="table-of-contents"><h2>Table of Contents</h2></a>
+<ol>
+<li><a href="">Formats</a></li>
+<li><a href="">Card-Types</a></li>
+<li><a href="">Terms</a></li>
+<li><a href="">Game-Mechanics</a></li>
+<li><a href="">Creation-Pile</a></li>
+<li><a href="">Promote</a></li>
+</ol>
+<a class="header" href="print.html#formats" id="formats"><h1>Formats</h1></a>
+<p>In any format (unless specified):</p>
+<ul>
+<li>A player can only have 4 copies of a single card unless specified any exception</li>
+<li>A player must start with 5 cards in their hand</li>
+<li>A player’s turn has the following phases:
+<ol>
+<li>Draw Phase (Player draws a card from their deck)</li>
+<li>Main Phase (Can place summons or cast invocations)</li>
+<li>Combat Phase (Battle using your summons)</li>
+<li>Final Cast (Can only cast invocations)</li>
+<li>End Phase (Ends turn)</li>
+</ol>
+</li>
+</ul>
+<a class="header" href="print.html#standard" id="standard"><h2>Standard</h2></a>
+<ul>
+<li>This format is the most common format that is played, and considered the default playing style.</li>
+<li>A Deck must contain 50 cards</li>
+<li>A Deck must contain Summons belonging to only one Faction.</li>
+</ul>
+<a class="header" href="print.html#card-types" id="card-types"><h1>Card-Types</h1></a>
+<p>In Phaktionz, there are two cards with their own types with them. One being <em>Summons</em> (the units), and
+<em>Invocations</em>(the sorcery/weapons/etc.). These two cards have their own types that are discussed below:</p>
+<a class="header" href="print.html#summons" id="summons"><h2>Summons</h2></a>
+<ol>
+<li>Striker: A striker Summon can battle </li>
+</ol>
+<a class="header" href="print.html#terms" id="terms"><h1>Terms</h1></a>
+<a class="header" href="print.html#game-mechanics" id="game-mechanics"><h1>Game-Mechanics</h1></a>
+<a class="header" href="print.html#creation-pile" id="creation-pile"><h1>Creation-Pile</h1></a>
+<a class="header" href="print.html#promote" id="promote"><h1>Promote</h1></a>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+
+                
+
+            </div>
+
+            
+
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+        
+
+        
+        <script>
+            $(document).ready(function() {
+                window.print();
+            })
+        </script>
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>
