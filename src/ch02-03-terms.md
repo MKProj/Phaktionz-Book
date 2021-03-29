@@ -1,5 +1,5 @@
 # Terms
-`Summons: Units that battle in the battlefield`
+- `Summons: Units that battle in the battlefield`
 - Invocations: Sorcery that may be cast to gain benefit
 - Abled: The position in which a unit may battle
 - Disabled: The position in which a unit is unable to battle (this is done with your Summon being sideways)
