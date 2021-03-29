@@ -1,0 +1,6 @@
+[book]
+title="Phaktionz TCG"
+author="Mustafif Khan"
+
+[output.html]
+git-repository-url="https://github.com/MKProj/Phaktionz-Book.git"
