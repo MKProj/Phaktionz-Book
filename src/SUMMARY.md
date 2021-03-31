@@ -48,5 +48,4 @@
         - [Episode 17~20 - Cities!](04-Concepts/S1/17~20.md)
 
 ---
-- [Character Decks]()
-    - [Lulo - Forbidden Army](05-Decks/Forbidden.md) 
+- [Phaktionz-CLI](05-CLI/00.md)
