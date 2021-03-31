@@ -1,100 +1,183 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" class="sidebar-visible no-js ayu">
     <head>
+        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Phaktionz TCG</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
 
-        <base href="">
-
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
-
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
         <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
 
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
 
+        <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
-        <!-- Custom theme -->
+        <!-- Custom theme stylesheets -->
         
 
         
-
-        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
-        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
-        <script>
-            if (typeof Clipboard == 'undefined') {
-                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
-            }
-        </script>
-
-        <!-- Fetch JQuery from CDN but have a local fallback -->
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script>
-            if (typeof jQuery == 'undefined') {
-                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
-            }
-        </script>
-
-        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
-        <script src="store.js"></script>
-
     </head>
-    <body class="light">
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
-            var theme = store.get('mdbook-theme');
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            $('body').removeClass().addClass(theme);
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script type="text/javascript">
-            var sidebar = store.get('mdbook-sidebar');
-            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
-            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
-        <div id="sidebar" class="sidebar">
-            <ul class="chapter"><li><a href="./ch1-phaktionz.html"><strong>1.</strong> Phaktionz</a></li><li><ul class="section"><li><a href="./ch1-01-factions.html"><strong>1.1.</strong> Factions</a></li></ul></li><li><a href="./ch2-rules.html"><strong>2.</strong> Rules</a></li><li><ul class="section"><li><a href="./ch2-01-formats.html"><strong>2.1.</strong> Formats</a></li><li><a href="./ch2-02-card.html"><strong>2.2.</strong> Card-Types</a></li><li><a href="./ch02-03-terms.html"><strong>2.3.</strong> Terms</a></li><li><a href="./ch2-04-mechanics.html"><strong>2.4.</strong> Game-Mechanics</a></li><li><a href="./ch2-05-cp.html"><strong>2.5.</strong> Creation-Pile</a></li><li><a href="./ch2-06-promote.html"><strong>2.6.</strong> Promote</a></li></ul></li></ul>
-        </div>
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01-Phaktionz/ch1-phaktionz.html">Phaktionz</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="01-Phaktionz/ch1-01-factions.html">Factions</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="02-Rules/ch2-rules.html">Rules</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02-Rules/ch2-01-formats.html">Formats</a></li><li class="chapter-item expanded "><a href="02-Rules/ch2-02-card.html">Card-Types</a></li><li class="chapter-item expanded "><a href="02-Rules/ch2-03-terms.html">Terms</a></li><li class="chapter-item expanded "><a href="02-Rules/ch2-04-mechanics.html">Game-Mechanics</a></li><li class="chapter-item expanded "><a href="02-Rules/ch2-05-cp.html">Creation-Pile</a></li><li class="chapter-item expanded "><a href="02-Rules/ch2-06-promote.html">Promote</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div>Profiles</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="03-Profiles/S1/Zane.html">Zane Fulmore</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Lulo.html">Lulo Tsuzaki</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Percy.html">Percy Thomson</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Khloe.html">Khloe Bright</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Finn.html">Finn</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Tesa.html">Tesa Heinds</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Aziza.html">Aziza Cambri</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Sventher.html">Sventher Panther</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Tigero.html">Tigero Serpentine</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Elle.html">Elle L'Fant</a></li><li class="chapter-item expanded "><a href="03-Profiles/S1/Syco.html">Syco Liscquinious</a></li><li class="chapter-item expanded "><a href="03-Profiles/S2/Lyla.html">Lyla Preston</a></li><li class="chapter-item expanded "><a href="03-Profiles/S2/Nimu.html">Nimu Sinthu</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div>Story Concepts</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-Concepts/S1/00.html">Season 1 Warrior's Path</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-Concepts/S1/01.html">Episode 1 - The First Match</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/02.html">Episode 2 - Finn's Fan Fave Shop</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/03.html">Episode 3 - The Gang</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/04.html">Episode 4 - Lulo's Mystery</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/05.html">Episode 5 - Missing</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/06.html">Episode 6 - Corruquatro</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/07.html">Episode 7 - Mythical Lores</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/08~10.html">Episode 8~10 - SHOP TOURNAMENT</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/11.html">Episode 11 - Mix and Match</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/12.html">Episode 12 - Sleepover!</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/13.html">Episode 13 - The Prodigy</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/14.html">Episode 14 - Pro Procastinating</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/15.html">Episode 15 - The Weird Dream</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/16.html">Episode 16 - The Ultimate Dragon Warrior</a></li><li class="chapter-item expanded "><a href="04-Concepts/S1/17~20.html">Episode 17~20 - Cities!</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><div>Character Decks</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="05-Decks/Forbidden.html">Lulo - Forbidden Army</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
-            <div class="page" tabindex="-1">
+            <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
-                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
-                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
                     </div>
 
                     <h1 class="menu-title">Phaktionz TCG</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html">
-                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
+                        
+                        <a href="https://github.com/MKProj/Phaktionz-Book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
                 <div id="content" class="content">
-                    <a class="header" href="print.html#phaktionz" id="phaktionz"><h1>Phaktionz???</h1></a>
-<p>Phaktionz is a trading card game (TCG) being made and developed by Casual Card Cafe,
-and it's content being driven focussed as a community involved card game. The whole
-objective of the game is to make your opponent deck out or in other words have no cards
-left in their deck, and this can be done in various ways.</p>
-<a class="header" href="print.html#phaktionz-cli" id="phaktionz-cli"><h2>Phaktionz-CLI</h2></a>
-<p>Before continuing onto the various aspects of Phaktionz, if you would like to learn Phaktionz
-from directly on a Command Line, (currently only for Debian Linux Systems), then you may install doing the
-following commands:</p>
+                    <main>
+                        <h1 id="phaktionz"><a class="header" href="#phaktionz">Phaktionz???</a></h1>
+<p>Phaktionz is a trading card game (TCG) being made and developed by Casual Card Cafe, 
+and it's content being driven focussed as a community involved card game. The whole 
+objective of the game is to make your opponent deck out or in other words have no cards 
+left in their deck, and this can be done in various ways. </p>
+<h2 id="phaktionz-cli"><a class="header" href="#phaktionz-cli">Phaktionz-CLI</a></h2>
+<p>Before continuing onto the various aspects of Phaktionz, if you would like to learn Phaktionz 
+from directly on a Command Line, (currently only for Debian Linux Systems), then you may install doing the 
+following commands: </p>
 <pre><code class="language-bash">#First add the repository 
 $ echo &quot;deb [trusted=yes] https://mkproj.github.io/Packages/ ./&quot; | sudo tee -a /etc/apt/sources.list &gt; /dev/null
 # Next update your packages 
@@ -102,64 +185,64 @@ $ sudo apt update
 #Now you can install Phaktionz-CLI
 $ sudo apt install phaktionz
 </code></pre>
-<a class="header" href="print.html#factions" id="factions"><h1>Factions</h1></a>
-<p>In Phaktionz, your deck is built upon a specific faction that consists on it's own
-unique Summons, and with it, it's own story. The factions that live within the Phaktionz
-realm is categorized by their historic timeline, and goes as the following:</p>
+<h1 id="factions"><a class="header" href="#factions">Factions</a></h1>
+<p>In Phaktionz, your deck is built upon a specific faction that consists on it's own 
+unique Summons, and with it, it's own story. The factions that live within the Phaktionz 
+realm is categorized by their historic timeline, and goes as the following: </p>
 <ol>
-<li><a href="./ch1-01-factions.html#origins">Origins</a></li>
-<li><a href="./ch1-01-factions.html#delphic">Delphics</a></li>
-<li><a href="ch1-01-factions.html#modernas">Modernas</a></li>
+<li><a href="01-Phaktionz/./ch1-01-factions.html#origins">Origins</a></li>
+<li><a href="01-Phaktionz/./ch1-01-factions.html#delphic">Delphics</a></li>
+<li><a href="01-Phaktionz/ch1-01-factions.html#modernas">Modernas</a></li>
 </ol>
-<div name="origins"><a class="header" href="print.html#origins" id="origins"><h2>Origins</h2></a></div>
+<div name="origins"><h2 id="origins"><a class="header" href="#origins">Origins</a></h2></div>
 Origins are the factions that were first made by the founding fathers of the Phaktionz Realm, this being Prestige and his Sorcerers;
 Helios and his Mythicals; King and her animal kingdom. These Origin factions still exist in the Phaktionz present day, but not as glorious as 
 it once was.
-<p>Origin Factions:</p>
+<p>Origin Factions: </p>
 <ul>
-<li>Sorcerers</li>
+<li>Sorcerers </li>
 <li>Mythicals</li>
 <li>Kingdoms</li>
 </ul>
-<div name="delphic"><a class="header" href="print.html#delphic" id="delphic"><h2>Delphic</h2></a></div>
+<div name="delphic"><h2 id="delphic"><a class="header" href="#delphic">Delphic</a></h2></div>
 In the Mythical History, there was a unique Summon named Lyzor, he had been an experiment between the three Origins, and being a failed product, 
 was casted off his mortal self to be a lesser entity, a shadow. He had hatred towards the Origins, and use his lesser self to possess and corrupt 
 Factions, and made the Forbidden Plague pandemic, and due to it, the Factions had eventually erased themselves from history, and became the Delphic factions. 
-<p>Delphic Factions:</p>
+<p>Delphic Factions: </p>
 <ul>
 <li>Frosters</li>
 <li>Cryptics</li>
 <li>Cyborgs</li>
 <li>Probers</li>
-<li>The Unknowns</li>
+<li>The Unknowns </li>
 </ul>
-<div name="modernas"><a class="header" href="print.html#modernas" id="modernas"><h2>Modernas</h2></a></div>
+<div name="modernas"><h2 id="modernas"><a class="header" href="#modernas">Modernas</a></h2></div>
 Modernas are what you guess they are, these factions are the ones who exist in the present day. These factions are what you can consider the evolved 
 Origin factions, and has the most amount of factions. As well as unlike Origin factions who believe in the Delphics as myth, the Modernas have no 
 knowledge of their existence whatsoever. 
-<p>Modernas Factions:</p>
+<p>Modernas Factions: </p>
 <ul>
-<li>Oceanics</li>
-<li>Alchemists</li>
+<li>Oceanics </li>
+<li>Alchemists </li>
 <li>Descendants</li>
-<li>Warriors</li>
-<li>Dragons</li>
-<li>Phasmas</li>
+<li>Warriors </li>
+<li>Dragons </li>
+<li>Phasmas </li>
 <li>Titans</li>
 </ul>
-<a class="header" href="print.html#rules" id="rules"><h1>Rules</h1></a>
+<h1 id="rules"><a class="header" href="#rules">Rules</a></h1>
 <p>Current Rules Version: V1.2
 If you would like a pdf version of the Rules, click <a href="https://mkproj.com/Phaktionz/Rules/RulesV1.2.1.pdf">here!</a></p>
-<a class="header" href="print.html#table-of-contents" id="table-of-contents"><h2>Table of Contents</h2></a>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
 <ol>
-<li><a href="./ch2-01-formats.html">Formats</a></li>
-<li><a href="./ch2-02-card.html">Card-Types</a></li>
-<li><a href="./ch02-03-terms.html">Terms</a></li>
-<li><a href="./ch2-04-mechanics.html">Game-Mechanics</a></li>
-<li><a href="./ch2-05-cp.html">Creation-Pile</a></li>
-<li><a href="./ch2-06-promote.html">Promote</a></li>
+<li><a href="02-Rules/./ch2-01-formats.html">Formats</a></li>
+<li><a href="02-Rules/./ch2-02-card.html">Card-Types</a></li>
+<li><a href="02-Rules/./ch02-03-terms.html">Terms</a></li>
+<li><a href="02-Rules/./ch2-04-mechanics.html">Game-Mechanics</a></li>
+<li><a href="02-Rules/./ch2-05-cp.html">Creation-Pile</a></li>
+<li><a href="02-Rules/./ch2-06-promote.html">Promote</a></li>
 </ol>
-<a class="header" href="print.html#formats" id="formats"><h1>Formats</h1></a>
+<h1 id="formats"><a class="header" href="#formats">Formats</a></h1>
 <p>In any format (unless specified):</p>
 <ul>
 <li>A player can only have 4 copies of a single card unless specified any exception</li>
@@ -174,67 +257,820 @@ If you would like a pdf version of the Rules, click <a href="https://mkproj.com/
 </ol>
 </li>
 </ul>
-<a class="header" href="print.html#standard" id="standard"><h2>Standard</h2></a>
+<h2 id="standard"><a class="header" href="#standard">Standard</a></h2>
 <ul>
 <li>This format is the most common format that is played, and considered the default playing style.</li>
 <li>A Deck must contain 50 cards</li>
 <li>A Deck must contain Summons belonging to only one Faction.</li>
 </ul>
-<a class="header" href="print.html#card-types" id="card-types"><h1>Card-Types</h1></a>
-<p>In Phaktionz, there are two cards with their own types with them. One being <em>Summons</em> (the units), and
-<em>Invocations</em>(the sorcery/weapons/etc.). These two cards have their own types that are discussed below:</p>
-<a class="header" href="print.html#summons" id="summons"><h2>Summons</h2></a>
+<h1 id="card-types"><a class="header" href="#card-types">Card-Types</a></h1>
+<p>In Phaktionz, there are two cards with their own types with them. One being <em>Summons</em> (the units), and 
+<em>Invocations</em>(the sorcery/weapons/etc.). These two cards have their own types that are discussed below: </p>
+<h2 id="summons"><a class="header" href="#summons">Summons</a></h2>
 <ol>
-<li>Striker: A striker summon can battle any opponent's summon, but not the opponent directly.</li>
-<li>Tech: A tech summon can only battle in it's column, and to the opponent directly.</li>
+<li>Striker: A striker summon can battle any opponent's summon, but not the opponent directly. </li>
+<li>Tech: A tech summon can only battle in it's column, and to the opponent directly. </li>
 </ol>
-<a class="header" href="print.html#invocations" id="invocations"><h2>Invocations</h2></a>
+<h2 id="invocations"><a class="header" href="#invocations">Invocations</a></h2>
 <ol>
 <li>Regular: This type of invocation can only be casted on your turn</li>
-<li>Counter: This type of invocation can be casted on any turn.</li>
-<li>Weapon: This type of invocations is attached (put under) a summmon on the Battlefield.</li>
+<li>Counter: This type of invocation can be casted on any turn. </li>
+<li>Weapon: This type of invocations is attached (put under) a summmon on the Battlefield. </li>
 <li>Realm: This type of invocation remains on the battlefield providing conditional/continuous abilities. </li>
 </ol>
-<a class="header" href="print.html#terms" id="terms"><h1>Terms</h1></a>
-<p><code>Summons: Units that battle in the battlefield</code>
-<code>Invocations: Sorcery that may be cast to gain benefit</code>
-<code>Abled: The position in which a unit may battle</code>
-<code>Disabled: The position in which a unit is unable to battle (this is done with your Summon being sideways)</code>
-<code>Demote: To have a summon leave the battlefield</code>
-<code>Exile: To remove from play a summon</code>
-<code>Tiers: Represents the rank of a summon, Tier 1 being the lowest and 4 the highest</code>
-<code>DMG: The amount of cards a summon can deal an opponent to lose</code>
-<code>Fizzle: To stop an opponent's play</code>
-<code>L/x: Limit x per turn</code>
+<h1 id="terms"><a class="header" href="#terms">Terms</a></h1>
+<p>Keywords:</p>
+<p><code>Summons: Units that battle in the battlefield</code></p>
+<p><code>Invocations: Sorcery that may be cast to gain benefit</code></p>
+<p><code>Abled: The position in which a unit may battle</code></p>
+<p><code>Disabled: The position in which a unit is unable to battle (this is done with your Summon being sideways)</code></p>
+<p><code>Demote: To have a summon leave the battlefield</code></p>
+<p><code>Exile: To remove from play a summon</code></p>
+<p><code>Tiers: Represents the rank of a summon, Tier 1 being the lowest and 4 the highest</code></p>
+<p><code>DMG: The amount of cards a summon can deal an opponent to lose</code></p>
+<p><code>Fizzle: To stop an opponent's play</code></p>
+<p>Conditions:</p>
+<p><code>L/x: Limit x per turn</code><br />
 <code>Lx: Limit x per match</code></p>
-<a class="header" href="print.html#game-mechanics" id="game-mechanics"><h1>Game-Mechanics</h1></a>
-<a class="header" href="print.html#creation-pile" id="creation-pile"><h1>Creation-Pile</h1></a>
-<a class="header" href="print.html#promote" id="promote"><h1>Promote</h1></a>
+<h1 id="game-mechanics"><a class="header" href="#game-mechanics">Game-Mechanics</a></h1>
+<ul>
+<li>
+<p>When a Summon battles it becomes disabled (turned sideways)</p>
+</li>
+<li>
+<p>To place a Tier 2 or higher summon, you must demote Tiers total to the Summon’s Tier. </p>
+<ul>
+<li>For example, a Tier 2 may be placed by demoting a Tier 2 or 2 Tier 1s.</li>
+</ul>
+</li>
+<li>
+<p>At the start of the game, after the turn order is chosen, both players may mulligan any cards in their hand once.</p>
+</li>
+<li>
+<p>If a card’s ability were to break one of these rules, the card’s ability takes precedence.</p>
+</li>
+<li>
+<p>When battling, a Player takes DMG equal to the difference between the Summons.</p>
+</li>
+<li>
+<p>If a Summon that battles has less DMG than the opposing, no DMG is dealt.</p>
+</li>
+<li>
+<p>If a Summon that battles has more DMG than the opposing, the Opponent takes the difference, and the Summon is demoted (except if it’s Tier 3+).</p>
+</li>
+</ul>
+<h1 id="creation-pile"><a class="header" href="#creation-pile">Creation-Pile</a></h1>
+<p>Creation Pile is a pile located in the middle between your Deck and Deck
+Out Pile. It’s basic function is that cards in it may be added to your hand
+if they satisfy the Card’s Create condition.</p>
+<ul>
+<li>
+<p><strong>Limit</strong>: 10</p>
+</li>
+<li>
+<p>Abilities that include <em>CP</em> refer to Creation Pile</p>
+</li>
+<li>
+<p>The goal of Creation Pile is to have a last resort to yourself</p>
+</li>
+<li>
+<p>CP Cards are identified with CP in the top left along where Tier or Invocation type is located.</p>
+</li>
+</ul>
+<h1 id="promote"><a class="header" href="#promote">Promote</a></h1>
+<p>Promote brings forth two new Tiers, 0 and 4. A Tier 0/4 Summon has <strong>limit of 1</strong>.</p>
+<h2 id="tier-0"><a class="header" href="#tier-0">Tier 0</a></h2>
+<p>Tier 0’s are Summons that are placed and have a realm invocation ability, as well as having these attributes:</p>
+<ul>
+<li>Tier: 0</li>
+<li>DMG: 0</li>
+<li>Type: T/S</li>
+<li>Promote: Yes</li>
+<li>All Tier 0’s may not be battled, and treated as a Realm Invocation</li>
+</ul>
+<p><strong>Promote</strong>:  To Promote a Tier 0, is to flip it to it’s other side where it resides
+as Tier 4, and is placed at the Tier 3 location. To Promote, the player must satisfy a Promote condition that is described on the Card. 
+If you control Summons on the Battlefield and choose to Promote, the Summons will be demoted.</p>
+<h2 id="tier-4"><a class="header" href="#tier-4">Tier 4</a></h2>
+<p>Tier 4’s are usually a win condition card and are built to not stay on the field for long. While you control a Tier 4 you cannot have any other Summons
+on the Battlefield. As well as that, they have the following attributes:</p>
+<ul>
+<li>Tier: 4</li>
+<li>DMG: 7/8</li>
+<li>Type: T/S</li>
+<li>All Tier 4’s cannot be demoted in Battle nor be demoted by any abilities</li>
+<li>At the end of each End Phase the player takes Damage equal to it’s DMG
+<ul>
+<li>Refusal to pay will result in it being exiled</li>
+</ul>
+</li>
+</ul>
+<h1 id="zane-fulmore"><a class="header" href="#zane-fulmore">Zane Fulmore</a></h1>
+<ul>
+<li><strong>Age:</strong> 17</li>
+<li><strong>Height:</strong> 5' 7&quot; </li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Warriors </li>
+<li>Sorcerers </li>
+<li>Dragons</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Warriors - Basic </li>
+<li>Warriors - The Warrior's Path</li>
+<li>Sorcerers - Prestige's Will</li>
+<li>Dragons - Dragonic Reign</li>
+<li>Warriors/Sorcerers/Dragons - Z Throttle Synthesis </li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Zane is the energetic character that is always determined,
+and pushing himself to do better. In Season 1 we see him starting out
+with some success in Phaktionz and as he progresses becomes the best
+player, and later becomes full of himself to it, until he sees what greed
+really becomes of someone.</li>
+</ul>
+<h1 id="lulo-tsuzaki"><a class="header" href="#lulo-tsuzaki">Lulo Tsuzaki</a></h1>
+<ul>
+<li><strong>Age:</strong> 17</li>
+<li><strong>Height:</strong> 5' 7&quot; </li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Mythicals</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Mythicals - United Army</li>
+<li>Mythicals - Lin's Forbidden Army</li>
+<li>Mythicals - Helio's Will</li>
+<li>Mythicals - Lin's Legacy</li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Lulo is calm and collected, who’s rather the person who keeps the team focus. When in battle, he is fierce and competitive, 
+he’s secretive and lots of the others don’t know about him, but he works as Finn’s assistant and lives with him. His family 
+history is unknown, and there’s always something he knows that the others don’t know about. </li>
+</ul>
+<h1 id="percy-thomson"><a class="header" href="#percy-thomson">Percy Thomson</a></h1>
+<ul>
+<li><strong>Age:</strong> 17</li>
+<li><strong>Height:</strong> 5' 8&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Mythicals </li>
+<li>Alchemists</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Mythicals - Elvish Army</li>
+<li>Alchemists - Inorganics </li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Percy is the fun, wacky sort of dull person of the group, he’s always trying to motivate the team in the most weirdest ways, 
+and is dedicated to the game even with his many losses. He’s high spirited and becomes a whole package of encouragement and headaches.</li>
+</ul>
+<h1 id="khloe-bright"><a class="header" href="#khloe-bright">Khloe Bright</a></h1>
+<ul>
+<li><strong>Age:</strong> 18</li>
+<li><strong>Height:</strong> 5' 5&quot; </li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Kingdoms</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Kingdoms - Insect Manipulation</li>
+<li>Kingdoms - King's Will</li>
+<li>Kingdoms - Bright Kingdom </li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Khloe is the &quot;Mom&quot; in the group, where she always makes sure the others 
+are okay, and usually the one to make the two opposing sides talk. She is 
+very welcoming, and someone who made Zane comfortable in the beginning. </li>
+</ul>
+<h1 id="finn"><a class="header" href="#finn">Finn</a></h1>
+<ul>
+<li><strong>Age:</strong> 46</li>
+<li><strong>Height:</strong> 6'</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Titans</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Titans - Hibernated Legends</li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Finn is not only the Coach to the team, but a father figure to Zane
+and Lulo who don't exactly have a father to be loved by. He is usually
+energetic and wild with ideas, however can get serious and depressing 
+when reminded of the past he lived with, and the disappointments he had
+caused.</li>
+</ul>
+<h1 id="tesa-heinds"><a class="header" href="#tesa-heinds">Tesa Heinds</a></h1>
+<ul>
+<li><strong>Age:</strong> 17</li>
+<li><strong>Height:</strong> 5' 5&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Probers</li>
+<li>Cyborgs</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Probers - Clone Madness </li>
+<li>Probers - Mad Experiments</li>
+<li>Probers - Time Shift</li>
+<li>Probers/Cyborgs - Delphic Synthesis </li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Tesa is introduced as the Phaktionz Prodigy and considered one of the best players overall. 
+She is first part of Team Alpha Legends, but later is brought in as an addition to Team Finn, 
+and she likes to always help the others, mostly if it's Zane. She plays Probers as it 
+suits her personality of being an intellect and is usually seen being turns ahead of the opponent. </li>
+</ul>
+<h1 id="aziza-cambri"><a class="header" href="#aziza-cambri">Aziza Cambri</a></h1>
+<ul>
+<li><strong>Height:</strong> 5' 6&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Kingdoms</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Kingdoms - Insects</li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Aziza is a friend of Khloe's and part of the team Wild Kingdom. She is not a main character 
+and only appears every so often, but when the Gang needs some help, the Wild Kingdom are usually 
+there for their aid. Aziza also has a soft personality, except when she's in a battle, then she's
+the complete opposite and is completely competitive. </li>
+</ul>
+<h1 id="sventher-panther"><a class="header" href="#sventher-panther">Sventher Panther</a></h1>
+<ul>
+<li><strong>Height:</strong> 6' 2&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Kingdom</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Kingdoms - Slithering Venom </li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Sventher is like the typical emo that is most religious to the stereotypes. Dramatic with every word that is descended from his mouth to the 
+ever so listening boxes of mankind. He has his hair covering his left side of his face, and has many snake tattoos.
+He is the most weirdest member, and in terms of competitiveness, he wishes his opponent to be poisoned, not clear
+whether if it's metaphorical or literal.</li>
+</ul>
+<h1 id="tigero-serpentine"><a class="header" href="#tigero-serpentine">Tigero Serpentine</a></h1>
+<ul>
+<li><strong>Height:</strong> 6' 2&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Kingdoms</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Kingdoms - Tigero Charge</li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Tigero is one of the fast learning, smart member that others are fooled 
+of due to his jock looks. He can be heavily competitive with his superior 
+intellects doing planning plays ahead of time. </li>
+</ul>
+<h1 id="elle-lfant"><a class="header" href="#elle-lfant">Elle L'Fant</a></h1>
+<ul>
+<li><strong>Height:</strong> 5' 2&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Kingdoms</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Kingdoms - Elephant Rampage</li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Elle is the french sweetheart that is beautiful and cute to Zane's world. Being his first crush,
+and girlfriend, we really get to see a lot more of the gentle side of him from her. She is kind
+and can be scary in battle when she acts innocent but turns out to have manipulated you to her favor. </li>
+</ul>
+<h1 id="syco-liscqunious"><a class="header" href="#syco-liscqunious">Syco Liscqunious</a></h1>
+<ul>
+<li><strong>Height:</strong> 5' 4&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Cyborgs</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Cyborgs – Overloaded Madness</li>
+<li>Cyborgs – Override Minds</li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Syco is an interesting person, sort of like a mad scientist in a small person. 
+He plays the Delphic faction, Cyborgs and shows his superior intellect as he 
+thinks of strategy as a simple program. He loves using opponent's resources to help
+him out, and has a dark side that is felt but hard to analyze upon. </li>
+</ul>
+<h1 id="lyla-preston"><a class="header" href="#lyla-preston">Lyla Preston</a></h1>
+<ul>
+<li><strong>Height:</strong> 5'5&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Mythicals </li>
+<li>Alchemists</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Mythicals - Forbidden Sickness</li>
+<li>Alchemists - Pana Immortals </li>
+<li>Alchemists - Pana Synergy</li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Lyla is first introduced as someone who goes to Corruquatro like Zane and Lylo. She is later revealed as 
+Lylo's mysterious girlfriend, and the reason of his departure from Finn's team. She is the first villian 
+we meet, and first introduces the Delphic section of the Mythicals, Forbiddens. She is seen to manipulate 
+Lulo, and shares she's Finn's daughter.</li>
+</ul>
+<h1 id="nimu-sinthu"><a class="header" href="#nimu-sinthu">Nimu Sinthu</a></h1>
+<ul>
+<li><strong>Height:</strong> 5' 9&quot;</li>
+<li><strong>Faction:</strong> 
+<ol>
+<li>Cryptics</li>
+</ol>
+</li>
+<li><strong>Decks:</strong> 
+<ol>
+<li>Cryptics - Buried Past</li>
+</ol>
+</li>
+<li><strong>Description:</strong>
+Nimu, is a member of the Corruquatro team, and is a former champion as well. His skill is seen as 
+he loves to bury his opponent's summons, and use them with his mummy army. He is seen to be quiet 
+and very serious, and someone you wouldn't typically want to be stuck in a conversation with. He's 
+not much of a team player, and chooses to finish a match as soon as possible so he doesn't need
+to interact with the opponent for long. </li>
+</ul>
+<h1 id="phaktionz-story-concepts"><a class="header" href="#phaktionz-story-concepts">Phaktionz Story Concepts</a></h1>
+<h2 id="table-of-contents-1"><a class="header" href="#table-of-contents-1">Table of Contents:</a></h2>
+<ul>
+<li><strong>Season 1 : The Warrior's Path</strong>
+<ul>
+<li><a href="04-Concepts/S1/./04-Concepts/S1/01.html">Episode 1 : First Match</a></li>
+<li><a href="04-Concepts/S1/S1/02.html">Episode 2 : Finn's Fan Fave Shop</a></li>
+<li><a href="04-Concepts/S1/S1/03.html">Episode 3 : The Gang</a></li>
+<li><a href="04-Concepts/S1/S1/04.html">Episode 4 : Lulo's Mystery</a></li>
+<li><a href="04-Concepts/S1/S1/05.html">Episode 5 : Missing</a></li>
+<li><a href="04-Concepts/S1/S1/06.html">Episode 6 : Corruquatro</a></li>
+<li><a href="04-Concepts/S1/S1/07.html">Episode 7 : Mythical Lores</a></li>
+<li><a href="04-Concepts/S1/S1/08%7E10.html">Episode 8 - 10 : SHOP TOURNAMENT!!!</a></li>
+<li><a href="04-Concepts/S1/S1/11.html">Episode 11 : Mix and Match!</a></li>
+<li><a href="04-Concepts/S1/S1/12.html">Episode 12 : Sleepover!</a></li>
+<li><a href="04-Concepts/S1/S1/13.html">Episode 13 : The Prodigy</a></li>
+<li><a href="04-Concepts/S1/S1/14.html">Episode 14 : Pro Procrastinating</a></li>
+<li><a href="04-Concepts/S1/S1/15.html">Episode 15 : The Weird Dream</a></li>
+<li><a href="04-Concepts/S1/S1/16.html">Episode 16 : The Ultimate Dragon Warrior</a></li>
+<li><a href="04-Concepts/S1/S1/17%7E20.html">Episode 17-20 : Cities!</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="episode-1-first-match"><a class="header" href="#episode-1-first-match">Episode 1: First Match</a></h1>
+<ul>
+<li>We are introduced to the Main Character, Zane.</li>
+<li>It starts off with a &quot;dream&quot; or &quot;vision&quot;, of a talk between Prestige and 
+someone who Zane is seeing perspective of.</li>
+<li>Zane is shown to want to prove himself, and to redeem his father. 
+<ul>
+<li>Shown participating in class, even when he was wrong in most questions.</li>
+</ul>
+</li>
+<li>Zane is later shown following a classmate to an abandoned classroom, where 
+he sees a table in which it has a symbol similar to a deck he owns. </li>
+<li>Zane meets Lulo, and they have their first match, where Zane learns how to play
+<ul>
+<li>Zane (Warriors - Basic)</li>
+<li>Lulo (Mythicals - United)</li>
+</ul>
+</li>
+<li>Zane loses, but Lulo sees potential in him, and tells him he knows someone 
+who can help him.</li>
+</ul>
+<h1 id="episode-2-finns-fan-fave-shop"><a class="header" href="#episode-2-finns-fan-fave-shop">Episode 2 Finn's Fan Fave Shop</a></h1>
+<ul>
+<li>Lulo brings Zane to a Card Shop, Finn’s Fan Fave Shop, where Zane
+can be trained.</li>
+<li>Zane asking the owner, Finn where the owner can be found, is misunderstood as a punk.</li>
+<li>Finn challenges Zane, and Zane blindly accepts.
+<ul>
+<li>Finn (Titans - Hibernated Legends)</li>
+</ul>
+</li>
+<li>Zane loses, and Finn is told he is there to train from Lulo, so then Zane
+is accepted into Finn’s training program. </li>
+</ul>
+<h1 id="episode-3-the-gang"><a class="header" href="#episode-3-the-gang">Episode 3 The Gang</a></h1>
+<ul>
+<li>Zane is introduced to other members that are also part of Finn’s trainings.</li>
+<li>Introduces Khloe and Percy who is in a match and shows off his Mythical Elf Deck, and Reinforcement.</li>
+<li>Khloe eases Zane in with the norms of these trainings, as well as Percy’s
+and Lulo’s rivalry.</li>
+<li>Percy who tends to get annoyed from Lulo (using one archetype instead
+of all), challenges him to see who the Mythical King is.
+<ul>
+<li>Percy (Mythical - Elve’s Reinforcement)</li>
+<li>Lulo (Mythical - United Army)</li>
+</ul>
+</li>
+<li>Percy loses and admits his defeat, while Lulo stands to not be surprised
+of the result.</li>
+</ul>
+<h1 id="episode-4-lulos-mystery"><a class="header" href="#episode-4-lulos-mystery">Episode 4 Lulo's Mystery</a></h1>
+<ul>
+<li>
+<p>Zane comes to the store suprised to be greeted by Lulo.</p>
+</li>
+<li>
+<p>He finds out that Lulo works at the shop as Finn’s assistant, as well as
+lives with Finn.</p>
+</li>
+<li>
+<p>Khloe and Percy decide to tell Zane, Lulo’s story since he is part of
+them, but they think it’s best to talk at a nearby cafe instead of the
+shop.</p>
+</li>
+<li>
+<p>At the cafe, Khloe prepares to tell Zane, Lulo’s story as he is her
+childhood friend, and she has known him for a while.</p>
+</li>
+<li>
+<p>Lulo was bullied a lot in school, and Phaktionz was a way they determined the school social hierarchy.</p>
+</li>
+<li>
+<p>Lulo later got into a dark place when his parents died from an apparent sickness.</p>
+</li>
+<li>
+<p>Finn finds them talking about it, and decides to talk about how he kept
+seeing Lulo outside his shop, but never go in. Finn later finding out he
+was alone, decided to become his guardian as he had lost his daughter
+recently, knowing how it feels to lose someone. Finn also explains how
+he sees Lulo sometimes still struggling with it.</p>
+</li>
+<li>
+<p>We see Lulo looking at his deck, and not putting it back into the
+deck box</p>
+</li>
+<li>
+<p>When they come back, Lulo gives back his United deck, and says he
+doesn’t need it anymore.</p>
+</li>
+</ul>
+<h1 id="episode-5-reflected-thoughts"><a class="header" href="#episode-5-reflected-thoughts">Episode 5 Reflected Thoughts</a></h1>
+<ul>
+<li>Continues off of Episode 4 - Lulo’s Mystery</li>
+<li>Lulo is frustrated about his United deck, and returns it back to Finn</li>
+<li>The gang questions his choice as he tells Finn he won’t be playing
+anymore. The others try to convince him to play.</li>
+<li>He explains it’s the day of the incident, and concluded that it was his
+fault of what happened. He can’t look at himself the same way.</li>
+<li>He locks himself in his room, and refuses to talk to anyone.</li>
+</ul>
+<h1 id="episode-6-corruquatros"><a class="header" href="#episode-6-corruquatros">Episode 6 CorruQuatros</a></h1>
+<ul>
+<li>Zane trying to figure out how to help Lulo wanders off to a Phaktionz University Campus,
+hopefully seeking some advice from more experienced people.</li>
+<li>There he meets a curious fellow, who is also looking for wisdom in the campus, named Syco. </li>
+<li>Zane and Syco battle,, with Syco using his unique Cyborgs Deck 
+<ul>
+<li>Syco (Cyborgs - Overdrive)</li>
+</ul>
+</li>
+<li>Cyborgs being a faction that is never recalled in the Phaktionz history, and is considered a
+Delphic faction.</li>
+<li>Zane looking with the battle, he realizes that people sometimes sometimes need to rely on others to 
+grow strong, and we see a flashback of him with his Dad. </li>
+<li>Zane goes to Lulo, and talks to him, Lulo goes back to Finn, and in a moment of silence and awkwardness, 
+Finn gives his deck back, and says,</li>
+</ul>
+<blockquote>
+<p>&quot;I gave you this, not because I wasn't using it, but because Lin reflects you&quot;<br />
+&quot;Everyone has their dark and light sides&quot;</p>
+</blockquote>
+<h1 id="episode-mythical-lores"><a class="header" href="#episode-mythical-lores">Episode Mythical Lores</a></h1>
+<ul>
+<li>We see a vision where Prestige tells him the story of Helios and Lin.</li>
+<li>We get to see Lin as the great warrior who had first brought peace within the groups in Mythicals</li>
+<li>We see the relationship between Lin and Hulio 
+<ul>
+<li>Noticing they were brothers </li>
+</ul>
+</li>
+<li>The day of choosing came for Helios's successor 
+<ul>
+<li>Hulio had become it leaving Lin in jealousy </li>
+<li>Lin caught up in rage and jealousy argues with Helios, leaving in a bitter argument </li>
+</ul>
+</li>
+<li>Lin hearing voices in his head, leads his army in the Forbidden territory 
+<ul>
+<li>As Lin and his army approaches it, they are consumed in the darkness and never seen again</li>
+</ul>
+</li>
+</ul>
+<h1 id="episode-8-10-shop-tournament"><a class="header" href="#episode-8-10-shop-tournament">Episode 8-10 SHOP TOURNAMENT!!!</a></h1>
+<h2 id="randoms"><a class="header" href="#randoms">Randoms</a></h2>
+<ol>
+<li>William</li>
+<li>Mia</li>
+<li>Ava</li>
+<li>Noah</li>
+<li>Oliver</li>
+<li>Sophia</li>
+<li>Liam</li>
+<li>Charlotte</li>
+</ol>
+<h2 id="mains"><a class="header" href="#mains">Mains</a></h2>
+<ol>
+<li>Zane</li>
+<li>Percy</li>
+<li>Lulo </li>
+<li>Khloe</li>
+</ol>
+<h2 id="episode-8-part-1"><a class="header" href="#episode-8-part-1">Episode 8 Part 1</a></h2>
+<p>Will feature the first 2 rounds, necessary matches will only be on:<br />
+Round 1:</p>
+<ol>
+<li>Khloe VS Lulo 
+<ul>
+<li>Lulo (W1L0), Khloe (W0L1)</li>
+</ul>
+</li>
+<li>Zane VS Liam
+<ul>
+<li>Zane(W1L0)</li>
+</ul>
+</li>
+<li>Percy VS Charlotte
+<ul>
+<li>Percy (W1L0)</li>
+</ul>
+</li>
+</ol>
+<p>Round 2: </p>
+<ol>
+<li>Lulo VS Sophia 
+<ul>
+<li>Lulo (W2L0)</li>
+</ul>
+</li>
+<li>Zane VS Percy 
+<ul>
+<li>Zane (W2L0), Percy (W1L1)</li>
+</ul>
+</li>
+<li>Khloe VS Oliver 
+<ul>
+<li>Khloe (W1L1)</li>
+</ul>
+</li>
+</ol>
+<h2 id="episode-9-part-2"><a class="header" href="#episode-9-part-2">Episode 9 Part 2</a></h2>
+<p>Round 3: </p>
+<ol>
+<li>
+<p>Percy VS Liam</p>
+<ul>
+<li>Percy (W2L1)</li>
+</ul>
+</li>
+<li>
+<p>Khloe VS Ava </p>
+<ul>
+<li>Khloe (W2L1)</li>
+</ul>
+</li>
+</ol>
+<p>Zane and Lulo prepare to battle each other, while Khloe and Percy try to fight their way for third place.</p>
+<h2 id="episode-10-part-3"><a class="header" href="#episode-10-part-3">Episode 10 Part 3</a></h2>
+<p>Round 4: </p>
+<ol>
+<li>Zane VS Lulo
+<ul>
+<li>Zane (W3L0), Lulo (W3L1)</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Very close game, and both players are down with very few cards in deck. </p>
+</blockquote>
+<ol>
+<li>Percy VS Khloe
+<ul>
+<li>Khloe (W3L1), Percy (W2L2)</li>
+</ul>
+</li>
+</ol>
+<p>We see the new team, as it goes Zane -&gt; Lulo -&gt; Khloe -&gt; Percy</p>
+<blockquote>
+<p>Note: Khloe is third and not second with Lulo since she was technically in the elimination bracket. </p>
+</blockquote>
+<h1 id="episode-11-mix-and-match"><a class="header" href="#episode-11-mix-and-match">Episode 11 Mix and Match!</a></h1>
+<p>We get to see the new team that won the shop tourney, however
+Finn has a challenge for them, not only to build teamwork but understand each other better.
+The way he accomplishes this is by making each member swap with another one. </p>
+<h2 id="original-decks"><a class="header" href="#original-decks">Original Decks</a></h2>
+<ul>
+<li>Zane : Warrior's Basic </li>
+<li>Lulo : United Army</li>
+<li>Khloe : Insect Manipulation</li>
+<li>Percy : Reinforced Elf Army</li>
+</ul>
+<h2 id="mixed-decks"><a class="header" href="#mixed-decks">Mixed Decks</a></h2>
+<ul>
+<li>Zane : United Army </li>
+<li>Lulo : Insect Manipulation</li>
+<li>Khloe : Reinforced Elf Army</li>
+<li>Percy : Warriors Basic</li>
+</ul>
+<p>We then get: </p>
+<ul>
+<li>Zane VS Percy (Zane W)</li>
+<li>Khloe VS Lulo (Lulo W)</li>
+</ul>
+<p>We see them struggling trying to understand each other decks,
+Finn tells them the importance of understanding each other's decks, and as for the cities they need more practice. </p>
+<h1 id="episode-12-sleepover"><a class="header" href="#episode-12-sleepover">Episode 12 Sleepover!</a></h1>
+<p>The team has a sleepover at Finn’s, as fun as it may sound, Finn planned many twists in this sleepover. 
+In the sleepover, Finn has put random challenges everywhere, and we learn a little about Finn. While exploring, Zane finds a picture of Finn and two girls.
+He looks into it, and Finn finds him looking, and says that those were the two loves of his life. 
+He explains wife and daughter died from an unknown random sickness. His daughter went missing and was pronounced dead after three months. </p>
+<p>Finn asks Zane about his father and what happened and why Zane should redeem him. The team huddled up to hear his story. </p>
+<h1 id="episode-13--the-prodigy"><a class="header" href="#episode-13--the-prodigy">Episode 13  The Prodigy</a></h1>
+<p>Finn sets off the team to explore other shops and see the competition. They visit a shop called Alpha Legends, where they are known to have a strong team. </p>
+<p>When they arrive at the shop, they see someone leave not knowing who it is, and don’t question it. (Later realizing it’s Al Kover, the missing member). </p>
+<p>There they see a match between Brale and Tesa, Brale playing his Oceanics and Tesa his mysterious Probers. They see the end game in which Tesa wins. </p>
+<p>It is announced Tesa, the Phaktionz Progidy won, Zane asks around why he’s called that and meets Tesa. Tesa shows them his Probers Deck, a faction that never recalled in Phaktionz history. The gang gets to meet the team, but they are sadly not participating. </p>
+<p>They tell them that their other member left (They recall that person leaving), and that it’s too late for a new member to qualify for the tourney. Tesa then asks Zane for a battle, just to see how strong he is. </p>
+<h1 id="episode-14-pro-procastinating"><a class="header" href="#episode-14-pro-procastinating">Episode 14 Pro Procastinating</a></h1>
+<p>While being busy practicing for the Cities tournament, the gang also is stressed out by the winter final exams. Zane being most stressed out from the ultimatum given to him by his Mom, if he doesn’t do well, he won’t be able to play Phaktionz. </p>
+<p>He asks his smartest friends, Khloe and Tesa, not asking Percy (offended) and Lulo not leaving his room, being busy studying. Khloe, and Tesa set out to help him by mixing problems and Phaktionz together. </p>
+<p>Zane ends up doing really well, but to their surprise he followed Percy’s last minute pro procrastinating advice. </p>
+<h1 id="episode-15-the-weird-dream"><a class="header" href="#episode-15-the-weird-dream">Episode 15 The Weird Dream</a></h1>
+<p>Zane asleep has another vision looking into the Phaktionz Realm past, he sees a Council room, in which the three origins, and their banners are seated in a round table. The table is a circle, with each origin in the corner, with their letters where they are seated and a Z in the center. During the meeting, King (w. Kleo) and Helios (w. Hulio) are asking of Prestige’s presence, and then are told that he will not be attending. </p>
+<p>They talk about the apparent worm holes, or breaks in the realm that is causing chaos. In which Helios proposes borders that should be set up to deal with the situation temporarily. However each party disagree of the placement of the borders feeling that some of their realm shouldn’t be taken. This causes a huge argument to spur up, which causes problem with how Helios calls King a copycat to his creations and King accuses to the same. </p>
+<p>It ends with, if there’s no borders, war and chaos will break out. </p>
+<blockquote>
+<p>King looks and says, “Then war it shall be!”.
+They both disappear from the council room.  (At moments during the discussion, King does seem to have sudden headaches and/or rough coughs in which Kleo asks if she is okay.)<br />
+We then return to Zane waking up sweating and confused</p>
+</blockquote>
+<h1 id="episode-16-the-ultimate-dragon-warrior"><a class="header" href="#episode-16-the-ultimate-dragon-warrior">Episode 16 The Ultimate Dragon Warrior</a></h1>
+<p>Continues off of Episode 15 ending, and starts off with Zane completely shaken from his dream. He realizes at this point it must be something more of a dream, but he really doesn’t know what to do. </p>
+<p>He goes to the shop as the team has only a few days left to prepare. They are all fixing up their deck, and Zane is recommended to play a Tier 3 in his deck. Finn gives him different Warrior Tier 3’s to try out. </p>
+<p>Zane checks them out while he runs to get a few stuff for the gang, he runs into an old man and the cards fall to the ground. The old man with black glasses, a hat, cane and seemingly frail appearance notices he plays Phaktionz. </p>
+<blockquote>
+<p>He looks at him, says “You play Phaktionz, I can see you as a pure hearted boy, sorry for this, please accept this gift.”</p>
+</blockquote>
+<p>He gives him cards, <em>“Fulthrottle the Ultimate Dragon Warrior”</em>, and says “you look like the right person for this.” Zane picks up the rest of the cards, and stands up to thank him, he notices the man is gone. He sees the card with him, and goes back to the shop. Lulo asks him as he notices Zane fixing his deck,</p>
+<blockquote>
+<p>Zane ends off saying, “Prepared for any battle that arises me”. </p>
+</blockquote>
+<h1 id="episode-17---20-cities"><a class="header" href="#episode-17---20-cities">Episode 17 - 20 Cities!</a></h1>
+<p>The Cities tournament is a tournament that features local card shops to sponsor teams to compete, and qualify for regionals. Over here, the team meets Team Wild King and Alpha Legends. Team Wild Kings consists of players who all play the Kingdom Faction and Khloe’s best friend (Aziza Cambri). Team Alpha Legends consists of players who are experts in their factions, 2 Oceanics players, a descendent player who came back just in time to qualify and a probers player (Tesa Heinds). </p>
+<p>The tournament consists of 100 people and will feature around 4 Zane Battles and 5 short gang members' battles.</p>
+<h2 id="episode-17-part-1"><a class="header" href="#episode-17-part-1">Episode 17 Part 1</a></h2>
+<h3 id="match-team-strong-willed-random-team"><a class="header" href="#match-team-strong-willed-random-team">Match: Team Strong Willed (Random team)</a></h3>
+<ul>
+<li>Zane - Opo (Titans) W</li>
+<li>Khloe - Fofo (Descendents - Dinos) W</li>
+<li>Lulo -  Loko (Giants) W</li>
+</ul>
+<h2 id="episode-18-part-2"><a class="header" href="#episode-18-part-2">Episode 18 Part 2</a></h2>
+<h3 id="match-team-wild-kings"><a class="header" href="#match-team-wild-kings">Match: Team Wild Kings</a></h3>
+<ul>
+<li>Zane - Tigero L</li>
+<li>Khloe - Aziza W</li>
+<li>Percy - Sventher W</li>
+<li>Lulo - Elle L’fant W</li>
+</ul>
+<h2 id="episode-19-part-3"><a class="header" href="#episode-19-part-3">Episode 19 Part 3</a></h2>
+<h3 id="match-team-alpha-legends"><a class="header" href="#match-team-alpha-legends">Match: Team Alpha Legends</a></h3>
+<ul>
+<li>Zane - Brale W</li>
+<li>Lulo (United)  - Tesa  L</li>
+<li>Khloe - Horale L</li>
+<li>Percy - Al W</li>
+</ul>
+<p>At the end of this episode, we see a tie so each team must decide a player to battle to break the ice. </p>
+<h2 id="episode-20-part-4"><a class="header" href="#episode-20-part-4">Episode 20 Part 4</a></h2>
+<ul>
+<li>Zane - Tesa W (Wins by using Fulthrottle Ultimate and Fulthrottle Blast)</li>
+</ul>
+<p>Ends off with them celebrating and that regionals are next year and that they could relax and all. (Currently its January)</p>
+<h1 id="mythicals---the-forbidden-shadowed-army"><a class="header" href="#mythicals---the-forbidden-shadowed-army">Mythicals - The Forbidden Shadowed Army</a></h1>
+<h2 id="tier-3-summons"><a class="header" href="#tier-3-summons">Tier 3 Summons</a></h2>
+<p><strong>Name [Qty]</strong>   Lin the Forbidden Elf <strong>[4]</strong></p>
+<hr />
+<p><strong>Type</strong>           Striker
+<strong>DMG</strong>            6
+<strong>Ability</strong>        L/1: [Discard a Tier 3]: look at the top 3 cards of your Deck and Exile one, and shuffle the rest. This Summon can battle to the number of cards Exiled this turn. When this Summon deals DMG to your opponent: Plague.
+<strong>Name [Qty]</strong>   Liro the Fordidden Follower <strong>[4]</strong>
+<strong>Type</strong>           Tech
+<strong>DMG</strong>            5
+<strong>Ability</strong>        <strong>[Must be placed by demoting 2 Plague summons on each battlefield]</strong> While this summon is on the battlefield, Plague is reduced to one turn instead of two. <strong>This summon can only battle Plague summons, and placed as Tier 2</strong>
+<strong>Name [Qty]</strong>   Waroko, the Forbidden Giant <strong>[4]</strong>
+<strong>Type</strong>           Tech
+<strong>DMG</strong>            5
+<strong>Ability</strong>        <strong>[Must be placed by demoting 2 Plague summons on each battlefield]</strong> L/1: Demote a Plague Summon of yours to Exile an Opponent's Summon. Whenever a Summon is placed by demoting Plague Summons, add an Exiled card of yours to your hand. <strong>This summon can only battle Plague summons, and placed as Tier 2</strong>
+<strong>Name [Qty]</strong>   Iki the Forbidden Follower <strong>[4]</strong>
+<strong>Type</strong>           Tech
+<strong>DMG</strong>            5
+<strong>Ability</strong>        <strong>[Must be placed by demoting 2 Plague summons on each battlefield]</strong> While this summon is on the battlefield, you can place or cast from your deck out pile, if so exile them when casted or leave the battlefield. <strong>This summon can only battle Plague summons, and placed as Tier 2</strong></p>
+<h2 id="tier-1-summons"><a class="header" href="#tier-1-summons">Tier 1 Summons</a></h2>
+<p><strong>Name [Qty]</strong>   The Shadow <strong>[4]</strong></p>
+<hr />
+<p><strong>Type</strong>           Striker
+<strong>DMG</strong>            2
+<strong>Ability</strong>        L/1: When this summon has a Plague counter, remove it and give an Opponent 's summon a Plague Counter
+<strong>Name [Qty]</strong>   Cruel Captive <strong>[4]</strong>
+<strong>Type</strong>           Striker
+<strong>DMG</strong>            2
+<strong>Ability</strong>        <em>He had once spoken, he had one said his last words, but to Lyzor it was not enough to live. We seek and yet nothing found, he had been found in the Forbiddens.</em>
+<strong>Name [Qty]</strong>   Exiled Men**[4]**
+<strong>Type</strong>           Tech
+<strong>DMG</strong>            1
+<strong>Ability</strong>        L/1: When placed, look for an &quot;Forbidden&quot; Summon in your deck
+<strong>Name [Qty]</strong>   Wicked Goblin**[4]**
+<strong>Type</strong>           Tech
+<strong>DMG</strong>            1
+<strong>Ability</strong>        When placed, add a Tier 3 from your Deck, or Exile Zone to your Hand.
+<strong>Name [Qty]</strong>   Plagued Elf**[4]**
+<strong>Type</strong>           Tech
+<strong>DMG</strong>            1
+<strong>Ability</strong>        When this summon is exiled, deal DMG to your opponent equal to the Plague summons exiled this turn</p>
+<h2 id="invocations-1"><a class="header" href="#invocations-1">Invocations</a></h2>
+<p><strong>Name [Qty]</strong>   Wicked Forbidden Strength**[4]**</p>
+<hr />
+<p><strong>Type</strong>           Regular
+<strong>Ability</strong>        L/1:All Summons you control gain DMG equal to all Exiled Summons in the Exile Zones.
+<strong>Name [Qty]</strong>   Triatic Trouble <strong>[1]</strong>
+<strong>Type</strong>           Regular
+<strong>Ability</strong>        L1: Every Player takes 3 damage, then each demotes a summon. If all players do, place a tier 3 from your hand.
+<strong>Name [Qty]</strong>   Cursed Blade <strong>[4]</strong>
+<strong>Type</strong>           Weapon
+<strong>Ability</strong>        When a Summon this is attached to battles a Tier 2 or lower, exile it instead of demoting it
+<strong>Name [Qty]</strong>   Sickened Torture**[4]**
+<strong>Type</strong>           Counter
+<strong>Ability</strong>        Fizzle an ability by giving an Opponent's Summon a Plague counter.
+<strong>Name [Qty]</strong>   Forbidden Lands**[1]**
+<strong>Type</strong>           Realm
+<strong>Ability</strong>        Whenever a Summon is placed by demoting: Plague; if so that Summon cannot be demoted. Whenver a Summon is placed, add a counter to this card. Remove 3 counters from this card and do one of the following: (1)Plague (2)Exile a Summon with a Plague counter.</p>
 
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
                 </div>
-
-                <!-- Mobile navigation buttons -->
-                
-
-                
-
             </div>
 
-            
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
 
-            
+                
+            </nav>
 
         </div>
 
-
-        <!-- Local fallback for Font Awesome -->
-        <script>
-            if ($(".fa").css("font-family") !== "FontAwesome") {
-                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
-            }
-        </script>
-
-        <!-- Livereload script (if served using the cli tool) -->
         
 
         
@@ -242,17 +1078,34 @@ If you would like a pdf version of the Rules, click <a href="https://mkproj.com/
         
 
         
-        <script>
-            $(document).ready(function() {
-                window.print();
-            })
+        <script type="text/javascript">
+            window.playground_copyable = true;
         </script>
         
 
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        
 
-        <!-- Custom JS script -->
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
         
 
     </body>
