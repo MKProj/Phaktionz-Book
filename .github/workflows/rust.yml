@@ -19,6 +19,6 @@ jobs:
     - name: mdbook
       run: cargo install mdbook
     - name: Build
-      run: mdbook build --verbose
+      run: mdbook build 
     - name: Run tests
-      run: mdbook test --verbose
+      run: mdbook test 
