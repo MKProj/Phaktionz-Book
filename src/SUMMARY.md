@@ -46,6 +46,8 @@
         - [Episode 15 - The Weird Dream](04-Concepts/S1/15.md)
         - [Episode 16 - The Ultimate Dragon Warrior](04-Concepts/S1/16.md)
         - [Episode 17~20 - Cities!](04-Concepts/S1/17~20.md)
-
+    - [Season 2 The Plagued War]()
+        - [Episode 1 New Changes](04-Concepts/S2/01.md)
+        - 
 ---
 - [Phaktionz-CLI](05-CLI/00.md)
