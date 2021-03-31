@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: mdbook
+      run: cargo install mdbook
     - name: Build
       run: mdbook build --verbose
     - name: Run tests
