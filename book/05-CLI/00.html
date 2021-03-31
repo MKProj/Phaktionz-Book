@@ -168,6 +168,53 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="phaktionz-cli"><a class="header" href="#phaktionz-cli">Phaktionz-CLI</a></h1>
+<p>Currently Phaktionz-CLI is only available for Debian Linux systems, and is 
+being worked on to apply to other systems. However for this current prospect,
+this section will assume you will have a Debian Linux operating system. </p>
+<h2 id="download"><a class="header" href="#download">Download</a></h2>
+<p>As mentioned in the beginning, to get Phaktionz-CLI you do the following commands:</p>
+<pre><code class="language-bash">#First add the repository 
+$ echo &quot;deb [trusted=yes] https://mkproj.github.io/Packages/ ./&quot; | sudo tee -a /etc/apt/sources.list &gt; /dev/null
+# Next update your packages 
+$ sudo apt update
+#Now you can install Phaktionz-CLI
+$ sudo apt install phaktionz
+</code></pre>
+<p>Now to use Phaktionz, its quite easy as using the phaktionz command: </p>
+<pre><code class="language-bash"># For the current Version 0.3.3
+$ phaktionz
+Phaktionz CLI Wiki 0.3.3
+
+USAGE:
+    phaktionz &lt;SUBCOMMAND&gt;
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+SUBCOMMANDS:
+    help       Prints this message or the help of the given subcommand(s)
+    info       Gives info about Factions or it's Category
+    profile    Displays the profile of specified Character
+    rules      Displays the various rules in Phaktionz
+    story      Read the Story Concepts of Phaktionz
+</code></pre>
+<p>Many of the commands are straightforward, and if you need information on it, use list as the option.</p>
+<pre><code class="language-bash">$ phaktionz rules list
+Available Options for Rules: 
+        types: Lists out all Summon/Invocation Types
+        game-mech: Lists out all the Game Mechanics
+        terms: Lists out all the key terms
+        c-pile: Describes what Creation Pile is
+        promote: Describes what Promote is
+        all: Does all commands above
+</code></pre>
+<p>However the only exception to this is the <strong>story</strong> command, where it wasn't possible 
+to just put list in it, instead you do the following: </p>
+<pre><code class="language-bash"># You want to do story &lt;season&gt; 0 &lt;pdf-application&gt;
+# To get a list of Season 1 episodes, do the following:
+$ phaktionz 1 0 okular # can be any pdf app, I personally love okular
+</code></pre>
 
                     </main>
 
