@@ -19,6 +19,4 @@ jobs:
     - name: Build
       run: mdbook build --verbose
     - name: Run tests
-    
-    
-      run: cargo test --verbose
+      run: mdbook test --verbose
