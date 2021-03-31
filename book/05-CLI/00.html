@@ -183,6 +183,7 @@ $ sudo apt install phaktionz
 <p>Now to use Phaktionz, its quite easy as using the phaktionz command: </p>
 <pre><code class="language-bash"># For the current Version 0.3.3
 $ phaktionz
+# output
 Phaktionz CLI Wiki 0.3.3
 
 USAGE:
@@ -201,6 +202,7 @@ SUBCOMMANDS:
 </code></pre>
 <p>Many of the commands are straightforward, and if you need information on it, use list as the option.</p>
 <pre><code class="language-bash">$ phaktionz rules list
+# output
 Available Options for Rules: 
         types: Lists out all Summon/Invocation Types
         game-mech: Lists out all the Game Mechanics
@@ -211,9 +213,9 @@ Available Options for Rules:
 </code></pre>
 <p>However the only exception to this is the <strong>story</strong> command, where it wasn't possible 
 to just put list in it, instead you do the following: </p>
-<pre><code class="language-bash"># You want to do story &lt;season&gt; 0 &lt;pdf-application&gt;
+<pre><code class="language-bash"># You want to do phaktionz story &lt;season&gt; 0 &lt;pdf-application&gt;
 # To get a list of Season 1 episodes, do the following:
-$ phaktionz 1 0 okular # can be any pdf app, I personally love okular
+$ phaktionz story 1 0 okular # can be any pdf app, I personally love okular
 </code></pre>
 
                     </main>
