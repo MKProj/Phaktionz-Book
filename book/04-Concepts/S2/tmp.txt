@@ -1,0 +1,7 @@
+<link rel="stylesheet" href="../style.css">
+# Episode 
+
+
+<br>
+<a href=".html" class="previous">&laquo; Previous</a>
+<a href=".html" class="next">Next &raquo;</a>
