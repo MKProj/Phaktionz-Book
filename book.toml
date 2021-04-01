@@ -9,7 +9,7 @@ git-repository-url = "https://github.com/MKProj/Phaktionz-Book"
 git-repository-icon = "fa-github"
 copy-fonts = true
 no-section-label = true
-site-url = "/book/"
+
 
 [output.html.search]
 limit-results = 30
