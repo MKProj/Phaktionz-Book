@@ -2,6 +2,7 @@
 In any format (unless specified):
 - A player can only have 4 copies of a single card unless specified any exception
 - A player must start with 5 cards in their hand
+- A player may have a side-deck of 12 cards
 - A player’s turn has the following phases:
   1. Draw Phase (Player draws a card from their deck)
   2. Main Phase (Can place summons or cast invocations)
