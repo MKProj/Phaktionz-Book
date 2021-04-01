@@ -23,4 +23,4 @@ heading-split-level = 3
 copy-js = true
 
 [output.html.redirect]
-"index.html" = "phaktionz.mkproj.com/book/"
+"./index.html" = "phaktionz.mkproj.com/book/"
