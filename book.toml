@@ -21,6 +21,3 @@ boost-paragraph = 1
 expand = true
 heading-split-level = 3
 copy-js = true
-
-[output.html.redirect]
-"pahktionz.mkproj.com" = "phaktionz.mkproj.com/book/index.html"
