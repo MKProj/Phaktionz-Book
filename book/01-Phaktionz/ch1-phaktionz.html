@@ -171,17 +171,25 @@
 <p>Phaktionz is a trading card game (TCG) being made and developed by Casual Card Cafe, 
 and it's content being driven focussed as a community involved card game. The whole 
 objective of the game is to make your opponent deck out or in other words have no cards 
-left in their deck, and this can be done in various ways. </p>
+left in their deck, and this can be done in various ways.</p>
+<p>If you would like to view this locally, do the following: </p>
+<pre><code class="language-bash"># Clone the git repository
+$ git clone https://github.com/MKProj/Phaktionz-Book.git
+# Install mdbook
+$ cargo install mdbook
+# Now use the mdbook serve command
+$ mdbook serve Phaktionz-Book
+</code></pre>
 <h2 id="phaktionz-cli"><a class="header" href="#phaktionz-cli">Phaktionz-CLI</a></h2>
 <p>Before continuing onto the various aspects of Phaktionz, if you would like to learn Phaktionz 
-from directly on a Command Line, (currently only for Debian Linux Systems), then you may install doing the 
+from directly on a Command Line, (currently only for Mac and Linux), then you may install doing the 
 following commands: </p>
-<pre><code class="language-bash">#First add the repository 
-$ echo &quot;deb [trusted=yes] https://mkproj.github.io/Packages/ ./&quot; | sudo tee -a /etc/apt/sources.list &gt; /dev/null
-# Next update your packages 
-$ sudo apt update
-#Now you can install Phaktionz-CLI
-$ sudo apt install phaktionz
+<pre><code class="language-bash"># Make sure rust is installed
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Install Via Cargo
+$ cargo install phaktionz
+# To use Phaktionz 
+$ phaktionz &lt;subcommand&gt;
 </code></pre>
 
                     </main>
