@@ -24,8 +24,11 @@ following commands:
 ```bash
 # Make sure rust is installed
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# Install Via Cargo
+ # Install git 
+$ sudo apt install git-all # Debian Linux Example
+$ git --version # MacOS example
+# Install MDBook
+$ cargo install mdbook
+# Install Phaktionz
 $ cargo install phaktionz
-# To use Phaktionz 
-$ phaktionz <subcommand>
 ```

@@ -173,12 +173,15 @@ being worked on to apply to other systems. However for this current prospect,
 this section will assume you will have a Debian Linux operating system. </p>
 <h2 id="download"><a class="header" href="#download">Download</a></h2>
 <p>As mentioned in the beginning, to get Phaktionz-CLI you do the following commands:</p>
-<pre><code class="language-bash">#First add the repository 
-$ echo &quot;deb [trusted=yes] https://mkproj.github.io/Packages/ ./&quot; | sudo tee -a /etc/apt/sources.list &gt; /dev/null
-# Next update your packages 
-$ sudo apt update
-#Now you can install Phaktionz-CLI
-$ sudo apt install phaktionz
+<pre><code class="language-bash"># Make sure rust is installed
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+ # Install git 
+$ sudo apt install git-all # Debian Linux Example
+$ git --version # MacOS example
+# Install MDBook
+$ cargo install mdbook
+# Install Phaktionz
+$ cargo install phaktionz
 </code></pre>
 <p>Now to use Phaktionz, its quite easy as using the phaktionz command: </p>
 <pre><code class="language-bash"># For the current Version 0.3.3
