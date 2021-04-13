@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Rules 
+crowbook src/02-Rules/*.book
+mv src/02-Rules/*.epub src/02-Rules/*.html src/02-Rules/*.pdf ~/MKProjects/PHK/Phaktionz/DOCS/
+
+# Profiles 
+crowbook src/03*/*.book
+mv src/03*/*.epub src/03*/*.html src/03*/*.pdf ~/MKProjects/PHK/Phaktionz/DOCS/
+
+# Concepts
+crowbook src/04*/*.book
+mv src/04*/*.epub src/04*/*.html src/04*/*.pdf ~/MKProjects/PHK/Phaktionz/DOCS/
+

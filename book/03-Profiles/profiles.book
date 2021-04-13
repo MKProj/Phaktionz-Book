@@ -1,0 +1,29 @@
+author: Your name
+title: Your title
+lang: en
+
+## Output formats
+
+# Uncomment and fill to generate files
+# output.html: some_file.html
+# output.epub: some_file.epub
+# output.pdf: some_file.pdf
+
+# Or uncomment the following to generate PDF, HTML and EPUB files based on this file's name
+output: [pdf, epub, html]
+
+# Uncomment and fill to set cover image (for EPUB)
+# cover: some_cover.png
+
+## List of chapters
++ S1/Aziza.md
++ S1/Elle.md
++ S1/Finn.md
++ S1/Khloe.md
++ S1/Lulo.md
++ S1/Percy.md
++ S1/Sventher.md
++ S1/Syco.md
++ S1/Tesa.md
++ S1/Tigero.md
++ S1/Zane.md

@@ -1,0 +1,36 @@
+author: Mustafif Khan
+title: Phaktionz Story Concepts
+lang: en
+
+## Output formats
+
+# Uncomment and fill to generate files
+# output.html: some_file.html
+# output.epub: some_file.epub
+# output.pdf: some_file.pdf
+
+# Or uncomment the following to generate PDF, HTML and EPUB files based on this file's name
+output: [pdf, epub, html]
+
+# Uncomment and fill to set cover image (for EPUB)
+# cover: some_cover.png
+
+## List of chapters
++ S1/01.md
++ S1/02.md
++ S1/03.md
++ S1/04.md
++ S1/05.md
++ S1/06.md
++ S1/07.md
++ S1/08~10.md
++ S1/11.md
++ S1/12.md
++ S1/13.md
++ S1/14.md
++ S1/15.md
++ S1/16.md
++ S1/17~20.md
++ S2/01.md
++ S2/02.md
++ S2/03.md
