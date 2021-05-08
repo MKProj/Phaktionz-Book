@@ -1,0 +1,5 @@
+# Origins of Phaktionz Universe
+
+In the beginning there was an omniscient creature, but it had been alone so it had decided to create the multiple worlds that exist till this day. However only one thing had been out of its reach, it could not create other life unless it would cast itself to an eternal slumber. Through the years of terraforming the worlds,  it had grew bored and tired so it had decided to leave the fates of it’s worlds to three Summons to be its successor.  
+
+These Summons were named Prestige, the Origin of Sorcery, Helios, the Origin of the Mythicals and King, the Origin of the Animal Kingoms. These three were gifted with the power of creation, and so they placed their Summons into the various worlds, some abandoned as failures of creation, though all thrived, this is the Origins of the Phaktionz Universe.

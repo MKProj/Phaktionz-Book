@@ -12,3 +12,6 @@ mv src/03*/*.epub src/03*/*.html src/03*/*.pdf ~/MKProjects/PHK/Phaktionz/DOCS/
 crowbook src/04*/*.book
 mv src/04*/*.epub src/04*/*.html src/04*/*.pdf ~/MKProjects/PHK/Phaktionz/DOCS/
 
+# Lores
+crowbook src/05*/*.book
+mv src/05*/*.epub src/05*/*.html src/05*/*.pdf ~/MKProjects/PHK/Phaktionz/DOCS/

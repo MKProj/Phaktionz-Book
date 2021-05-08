@@ -4,7 +4,7 @@
     - [Factions](./01-Phaktionz/ch1-01-factions.md)
 
 ---
-- [Rules](./02-Rules/ch2-rules.md)
+- [Rules]()
     - [Formats](./02-Rules/ch2-01-formats.md)
     - [Card-Types](./02-Rules/ch2-02-card.md)
     - [Terms](./02-Rules/ch2-03-terms.md)
@@ -30,7 +30,7 @@
 
 ---
 - [Story Concepts]()
-    - [Season 1 Warrior's Path](04-Concepts/S1/00.md)
+    - [Season 1 Warrior's Path]()
         - [Episode 1 - The First Match](04-Concepts/S1/01.md)
         - [Episode 2 - Finn's Fan Fave Shop](04-Concepts/S1/02.md)
         - [Episode 3 - The Gang](04-Concepts/S1/03.md)
@@ -51,4 +51,11 @@
         - [Episode 2 - Advance Classes](04-Concepts/S2/02.md)
         - [Episode 3 - Mystery Girl](04-Concepts/S2/03.md)
 ---
-- [Phaktionz-CLI](05-CLI/00.md)
+- [Phaktionz Lores]()
+  - [Origins of Phaktionz Universe](05-Lores/01-Origins.md)
+  - [Oceanics](05-Lores/02-Oceanics.md)
+  - [Whirlemo and The Fisherman](05-Lores/03-Whirlemo.md)
+  - [Helio's Successor](05-Lores/04-Helios.md)
+  - [Lin's Forbidden Army](05-Lores/05-Lin.md)
+---
+- [Phaktionz-CLI](06-CLI/00.md)

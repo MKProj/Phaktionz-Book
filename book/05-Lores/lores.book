@@ -1,5 +1,5 @@
-author: Mustafif Khan
-title: Phaktionz Character Profiles
+author: Mustafif
+title: Phaktionz Lores
 lang: en
 
 ## Output formats
@@ -16,14 +16,8 @@ output: [pdf, epub, html]
 # cover: some_cover.png
 
 ## List of chapters
-+ S1/Aziza.md
-+ S1/Elle.md
-+ S1/Finn.md
-+ S1/Khloe.md
-+ S1/Lulo.md
-+ S1/Percy.md
-+ S1/Sventher.md
-+ S1/Syco.md
-+ S1/Tesa.md
-+ S1/Tigero.md
-+ S1/Zane.md
++ 01-Origins.md
++ 02-Oceanics.md
++ 03-Whirlemo.md
++ 04-Helios.md
++ 05-Lin.md
